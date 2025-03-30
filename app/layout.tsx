@@ -1,7 +1,6 @@
 import type React from "react";
 import "@/app/globals.css";
 import { Inter } from "next/font/google";
-import PlausibleProvider from "next-plausible";
 
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -22,32 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} text-zinc-900`}>
-        <PlausibleProvider domain="datatochart.com">
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
             disableTransitionOnChange
           >
             <div className="max-w-4xl mx-auto">{children}</div>
-            <footer className="text-center space-y-4 text-sm text-muted-foreground py-24 mt-24 border-t border-zinc-200">
-              <p>
-                Made by{" "}
-                <Link className="underline" href="https://jordienric.com">
-                  Jordi Enric
-                </Link>
-              </p>
-              <p>
-                Source code available on{" "}
-                <Link
-                  className="underline"
-                  href="https://github.com/jordienr/datatochart"
-                >
-                  GitHub
-                </Link>
-              </p>
-            </footer>
           </ThemeProvider>
-        </PlausibleProvider>
       </body>
     </html>
   );
