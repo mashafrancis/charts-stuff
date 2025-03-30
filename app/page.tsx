@@ -124,7 +124,7 @@ December,295000,5800,50.86,4.5,40000`;
     <main className="container mx-auto py-4 sm:py-6 px-3 sm:px-4 md:px-6 max-w-7xl antialiased tracking-tight">
       <header className="mb-24">
         <h1 className="text-lg sm:text-xl mb-2 font-medium text-center">
-          datatochart<span className="text-muted-foreground/50">.com</span>
+          chart stuff experimental
         </h1>
       </header>
 

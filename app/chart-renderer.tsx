@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import {type ReactNode, useMemo, useState} from "react";
 import { ChevronDown } from "lucide-react";
 import {
   Area,
@@ -98,7 +98,7 @@ export default function ChartRenderer({ data, chartType }: ChartRendererProps) {
       margin: { top: 20, right: 20, left: 20, bottom: 60 },
     };
 
-    const ChartWrapper = ({ children }: { children: React.ReactNode }) => {
+    const ChartWrapper = ({ children }: { children: ReactNode }) => {
       return (
         <ChartContainer
           config={chartConfig}
@@ -270,9 +270,9 @@ export default function ChartRenderer({ data, chartType }: ChartRendererProps) {
                 className={cn(
                   "px-3 py-1.5 text-sm rounded-md transition-all",
                   "border border-border",
-                  "focus-visible:outline-none focus-visible:ring-none",
+                  "focus-visible:outline-hidden focus-visible:ring-none",
                   selectedYAxes.includes(key)
-                    ? "bg-background text-foreground shadow-sm"
+                    ? "bg-background text-foreground shadow-xs"
                     : "bg-transparent text-muted-foreground  border-transparent"
                 )}
               >

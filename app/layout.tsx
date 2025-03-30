@@ -1,10 +1,11 @@
-import type React from "react";
+import type {ReactNode} from "react";
 import "@/app/globals.css";
-import { Inter } from "next/font/google";
+import { fontMono, fontSans } from './fonts'
+import "./globals.css";
+import Link from "next/link";
+import {cn} from "@/lib/utils";
 
 import { ThemeProvider } from "@/components/theme-provider";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Data to Chart",
@@ -13,14 +14,31 @@ export const metadata = {
   authors: [{ name: "Jordi Enric", url: "https://jordienric.com" }],
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
+  ],
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} text-zinc-900`}>
+    <body
+      className={cn(
+        'min-[100dvh] bg-alternative! whitespace-pre-line font-sans text-foreground antialiased',
+        fontSans.variable,
+        fontMono.variable
+      )}
+    >
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
@@ -32,6 +50,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-import "./globals.css";
-import Link from "next/link";
